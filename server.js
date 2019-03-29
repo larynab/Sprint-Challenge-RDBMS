@@ -2,16 +2,18 @@
 const express = require('express');
 
 //Routers
+const projectRouter = require('./data/projects/project-router.js');
 
-//Server is Express
+//(1)Server must be stated and then usage of server comes next, all using express
 const server = express();
 
-//Middleware
+//(2)Middleware
 server.use(express.json());
 
-//Routing Points
+//(2)Routing Points
+server.use('/api/projects', projectRouter);
 
-//Base Display Page
+//(2)Base Display Page
 server.get('/', (req, res) => {
     res.send(`<h1>Projects and Actions API</h1>`);
 });
